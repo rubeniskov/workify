@@ -1,0 +1,23 @@
+{
+  "name": "workify",
+  "version": "0.0.0",
+  "description": "Worker and Fork process handler with stream pipes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rubeniskov/workify.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rubeniskov/workify/issues"
+  },
+  "homepage": "https://github.com/rubeniskov/workify#readme",
+  "devDependencies": {
+    "node-static": "^0.7.8",
+    "npm-bump": "0.0.20"
+  }
+}
