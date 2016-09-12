@@ -19,8 +19,7 @@ endef
 #--transform varify
 define BROWSERIFY_FLAGS
 ./index.js \
---standalone MVD \
---plugin browserify-varify \
+--standalone workify \
 --debug \
 --outfile ./dist/bundle.js \
 --verbose
@@ -50,11 +49,12 @@ essentials:
 	if [  ! -d ./node_modules ] ; then npm install; fi;
 
 watch:
-	mkdir -p ./dist/
+	mkdir -p ./dist/ ./lib/
 	./node_modules/.bin/watchify $(BROWSERIFY_FLAGS)
 
 compile: essentials
-	mkdir -p ./dist/
+	mkdir -p ./dist/ ./lib/
+	./node_modules/.bin/babel src --out-dir lib
 	./node_modules/.bin/browserify $(BROWSERIFY_FLAGS)
 
 build: compile

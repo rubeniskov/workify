@@ -1,0 +1,16 @@
+<html>
+
+<head>
+</head>
+
+<body onload="load()">
+    <script type="text/javascript" src="../../dist/bundle.js"></script>
+    <script type="text/javascript">
+        function load() {
+            var worker = new (workify.Worker)('./worker.js');
+            console.log(worker);
+        }
+    </script>
+</body>
+
+</html>
