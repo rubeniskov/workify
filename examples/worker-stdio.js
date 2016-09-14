@@ -1,5 +1,5 @@
-
 var last = new Date().getTime();
+
 postMessage('Worker sync');
 
 onmessage = function(event) {
@@ -11,3 +11,8 @@ onmessage = function(event) {
 setInterval(function(){
     postMessage('jueri');
 }, 1000);
+
+
+process.stdin.on('data', function(chunk){
+    console.log('read chunk from stdin', chunk.toString());
+})

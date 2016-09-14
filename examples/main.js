@@ -1,9 +1,15 @@
-var worker = new (require('../').Worker)('./worker.js');
+var workify = workify ? workify : require('..');
 
-    worker.onmessage = function(event) {
-        console.log("Worker said : " + event.data);
-    };
+var worker = new (workify.Worker)('./worker.js');
 
-    setInterval(function(){
-        worker.postMessage('ali');
-    }, 1000);
+var last = new Date().getTime();
+
+worker.onmessage = function(event) {
+    var cur = new Date().getTime();
+    process.stdout.write("Worker said : " + event.data + ' ' + (cur - last) + '\n');
+    last = cur;
+};
+
+setInterval(function() {
+    worker.postMessage('ali');
+}, 1000);
