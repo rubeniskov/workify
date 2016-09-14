@@ -1,8 +1,11 @@
 import Worker from './worker';
+import Stream from './stream';
 
-export default class StreamWroker {
+export default class StreamWroker extends Stream{
     constructor(worker, options) {
-        self.worker = new Worker(worker, options);
+        super();
+        var self = this;
+        self.worker = worker instanceof(Worker) ? worker : new Worker(worker, options);
         self.worker.addEventListener('message', function(event) {
             switch (event.data.method) {
                 case 'push':
@@ -20,7 +23,7 @@ export default class StreamWroker {
             chunk: chunk
         });
     }
-    flush() {
+    flush(chunk) {
         this.worker.postMessage({
             method: 'flush',
             chunk: chunk
