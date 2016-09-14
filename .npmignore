@@ -1,2 +1,5 @@
-lib
-dist
+*
+!index.js
+!LICENSE
+!README.md
+!lib
