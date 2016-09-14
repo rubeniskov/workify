@@ -181,20 +181,20 @@ export default class Process extends Stdio {
 
         this.stdio = new Stdio(options.stdio);
     }
-    get stdin(){
-        return this.stdio.stdin;
-    }
-    get stdout(){
-        return this.stdio.stdout;
-    }
-    get stderr(){
-        return this.stdio.stderr;
-    }
-    get ipc(){
-        return this.stdio.ipc;
-    }
+    // get stdin(){
+    //     return this.stdio.stdin;
+    // }
+    // get stdout(){
+    //     return this.stdio.stdout;
+    // }
+    // get stderr(){
+    //     return this.stdio.stderr;
+    // }
+    // get ipc(){
+    //     return this.stdio.ipc;
+    // }
     set onmessage(fn) {
-        this.stdio.ipc.on('message', fn);
+        fn && this.stdio.ipc.on('message', fn);
         // var self = this;
         // if (this.stdio.ipc.channel)
         //     this.stdio.ipc.channel.onmessage = fn;
@@ -204,10 +204,10 @@ export default class Process extends Stdio {
         //     });
     }
     addEventListener(){
-        self.addListener.apply(this, arguments)
+        this.addListener.apply(this, arguments)
     }
     removeEventListener(){
-        self.removeListener.apply(this, arguments)
+        this.removeListener.apply(this, arguments)
     }
     postMessage(data) {
         this.stdio.ipc.send(data);

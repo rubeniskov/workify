@@ -1,1 +1,1 @@
-export Worker from './worker-node/worker';
+export default from './worker-node/worker';

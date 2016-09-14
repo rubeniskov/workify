@@ -13,7 +13,7 @@ export default class WebWorker extends Process {
         var self = this;
         self._worker = worker instanceof(global.DedicatedWorkerGlobalScope || utils.noop);
         self._async = false;
-        self.once('initialized', function(worker){
+        self.once('initialized', function(worker) {
             this.stdio.ipc.channel = worker;
         });
 
@@ -79,7 +79,17 @@ export default class WebWorker extends Process {
                 ].join('\n')),
                 wcache
             ];
+        } else {
+            sources[wkey][0] =
+                Function(['require', 'module', 'exports'], [
+                    'module.exports = function(' + Object.keys(injects) + '){',
+                    '(' + worker.toString() + ')()',
+                    'self.onmessage = onmessage;',
+                    'self.onerror = onerror;',
+                    '}'
+                ].join('\n'));
         }
+
         var skey = utils.uid();
 
         var scache = {};
@@ -89,7 +99,7 @@ export default class WebWorker extends Process {
             Function(['require'], (
                 'var f = require(' + stringify(wkey) + '),' +
                 '    w = require("_worker");' +
-                '(f.default ? f.default : f).call((w = new (w.default ? w.default : w)(self)), '+ Object.keys(injects).map(key=>injects[key]) +');'
+                '(f.default ? f.default : f).call((w = new (w.default ? w.default : w)(self)), ' + Object.keys(injects).map(key => injects[key]) + ');'
             )),
             scache
         ];
