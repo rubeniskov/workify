@@ -28,6 +28,6 @@ export default class Ipc extends EventEmitter {
     }
     _send(packet) {
         var buf = bson.BSON.prototype.serialize(packet);
-        this.channel.postMessage(buf.buffer, [buf.buffer]);
+        this.channel && this.channel.postMessage(buf.buffer, [buf.buffer]);
     }
 };

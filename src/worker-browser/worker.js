@@ -6,6 +6,7 @@ var bundleFn = utils.bundleFn;
 var sources = utils.sources;
 var cache = utils.cache;
 var stringify = JSON.stringify;
+var NativeWorker = global.Worker;
 
 export default class WebWorker extends Process {
     constructor(worker, options) {
@@ -120,7 +121,7 @@ export default class WebWorker extends Process {
 
         var src = utils.bundle(workerSources, skey);
 
-        var URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
+        var URL = global.URL || global.webkitURL || global.mozURL || global.msURL;
 
         var blob = new Blob([src], {
             type: 'text/javascript'
@@ -129,7 +130,7 @@ export default class WebWorker extends Process {
             return blob;
         }
         var workerUrl = URL.createObjectURL(blob);
-        var worker = new Worker(workerUrl);
+        var worker = new NativeWorker(workerUrl);
         worker.objectURL = workerUrl;
         self._handler = worker;
         self.emit('initialized', worker);

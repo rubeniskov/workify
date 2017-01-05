@@ -1,7 +1,7 @@
 import Worker from './worker';
 import Stream from './stream';
 
-export default class StreamWroker extends Stream{
+export default class StreamWroker extends Stream {
     constructor(worker, options) {
         super();
         var self = this;
