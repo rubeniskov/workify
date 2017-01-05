@@ -1,5 +1,5 @@
-
 var last = new Date().getTime();
+
 postMessage('Worker sync');
 
 onmessage = function(event) {
@@ -9,5 +9,5 @@ onmessage = function(event) {
 };
 
 setInterval(function(){
-    postMessage('jueri');
+    postMessage('async');
 }, 1000);

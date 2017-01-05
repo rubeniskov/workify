@@ -19,5 +19,5 @@ worker.onmessage = function(event) {
 };
 
 setInterval(function() {
-    worker.postMessage('ali');
+    worker.postMessage('async');
 }, 1000);
