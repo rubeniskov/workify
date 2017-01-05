@@ -123,10 +123,10 @@ server_stop:
 	echo > /dev/null
 
 major:
-	./node_modules/.bin/npm-bump major
+	@./node_modules/.bin/npm-bump major
 
 minor:
-	./node_modules/.bin/npm-bump minor
+	@./node_modules/.bin/npm-bump minor
 
 patch:
 	@./node_modules/.bin/npm-bump patch
