@@ -5,9 +5,9 @@ Worker and Fork process handler with stream pipes works on browser and NodeJS wi
 To include the lib as standalone in your webpage you can use the cdn or download de files:
 
 ```html
-<script type="text/javascript" src="https://unpkg.com/workify/dist/bundle.js"></script>
+<script type="text/javascript" src="https://unpkg.com/workify@latest/dist/bundle.js"></script>
 <!-- or minified version -->
-<script type="text/javascript" src="https://unpkg.com/workify/dist/bundle.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/workify@latest/dist/bundle.min.js"></script>
 ```
 
 <!-- You can also use as nodeJS module like this: -->
@@ -31,7 +31,7 @@ setInterval(function(){
 
 ```html
 <!-- index.html -->
-<script type="text/javascript" src="https://unpkg.com/workify/dist/bundle.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/workify@latest/dist/bundle.min.js"></script>
 <script type="text/javascript">
     var Worker = workify.Worker,
         worker = new Worker('worker.js');
@@ -97,7 +97,7 @@ Now you can include in html with a script tag
 
 ```html
 <!-- index.html -->
-<script type="text/javascript" src="https://unpkg.com/workify/dist/bundle.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/workify@latest/dist/bundle.min.js"></script>
 <script type="text/javascript" src="index.js"></script>
 ```
 
