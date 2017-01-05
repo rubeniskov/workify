@@ -1,6 +1,6 @@
 {
   "name": "workify",
-  "version": "0.0.5",
+  "version": "0.0.6-pre",
   "description": "Worker and Fork process handler with stream pipes",
   "main": "index.js",
   "publishConfig": {
