@@ -3,3 +3,7 @@
 !LICENSE
 !README.md
 !lib
+!dist/bundle.js
+!dist/bundle.min.js
+!stream.js
+!worker.js
