@@ -1,0 +1,22 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <script type="text/javascript" src="../../../dist/bundle.min.js"></script>
+    <script type="text/javascript">
+        var Worker = workify.Worker,
+            worker = new Worker('./worker.js');
+
+            worker.onmessage = function(event) {
+                console.log("Worker said : " + event.data);
+            };
+
+        setInterval(function() {
+            worker.postMessage('bar');
+        }, 1000);
+    </script>
+</body>
+
+</html>
