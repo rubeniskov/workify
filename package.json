@@ -40,7 +40,7 @@
     "uglifyjs": "^2.4.10"
   },
   "dependencies": {
-    "bson": "^0.5.4",
+    "bson": "^2.0.0",
     "readable-stream": "^2.2.2",
     "stream-http": "^2.4.0",
     "tiny-worker": "^1.1.5"
